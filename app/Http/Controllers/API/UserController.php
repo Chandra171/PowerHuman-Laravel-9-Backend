@@ -19,7 +19,7 @@ class UserController extends Controller
         try {
 
             //Validate Request
-            $request->valdiate([
+            $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'unique:users'],
                 'password' => ['required', 'string', new Password],
