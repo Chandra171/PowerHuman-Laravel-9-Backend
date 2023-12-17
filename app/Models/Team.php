@@ -13,7 +13,7 @@ class Team extends Model
     protected $fillable = [
         'name',
         'icon',
-        'company__id'
+        'company_id'
     ];
 
     public function company(){

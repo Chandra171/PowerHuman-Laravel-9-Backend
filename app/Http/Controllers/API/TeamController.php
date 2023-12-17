@@ -19,7 +19,7 @@ class TeamController extends Controller
         $name = $request->input('name');
         $limit = $request->input('limit', 10);
 
-        $teamQuery  = Team::query();
+        $teamQuery  = Team::withCount('employees');
 
         //Ambil satu data
         if($id){
@@ -54,8 +54,8 @@ class TeamController extends Controller
             //create team
             $team = Team::create([
                 'name' => $request->name,
-                'icon' => $path,
-                'company_id' => $request->company_id
+                'icon' => isset($path) ? $path : '',
+                'company_id' => $request->company_id,
             ]);
 
             if(!$team){
